@@ -1,0 +1,123 @@
+# Iranian Oil & Gas — Clause Type Ontology
+version: 1.0.0
+
+clause_types:
+  - id: definitions
+    category: structural
+    labels:
+      en: Definitions and Interpretation
+      fa: تعاریف و تفسیر
+
+  - id: scope_of_work
+    category: commercial
+    labels:
+      en: Scope of Work
+      fa: حوزه کار
+
+  - id: payment_terms
+    category: commercial
+    labels:
+      en: Payment Terms
+      fa: شرایط پرداخت
+
+  - id: delivery_schedule
+    category: commercial
+    labels:
+      en: Delivery Schedule
+      fa: برنامه تحویل
+
+  - id: warranties
+    category: risk
+    labels:
+      en: Warranties
+      fa: ضمانت‌نامه‌ها
+
+  - id: limitation_of_liability
+    category: risk
+    labels:
+      en: Limitation of Liability
+      fa: محدودیت مسئولیت
+
+  - id: indemnification
+    category: risk
+    labels:
+      en: Indemnification
+      fa: جبران خسارت
+
+  - id: force_majeure
+    category: risk
+    labels:
+      en: Force Majeure
+      fa: فورس ماژور
+
+  - id: confidentiality
+    category: compliance
+    labels:
+      en: Confidentiality
+      fa: محرمانگی
+
+  - id: intellectual_property
+    category: compliance
+    labels:
+      en: Intellectual Property
+      fa: مالکیت فکری
+
+  - id: governing_law
+    category: legal
+    labels:
+      en: Governing Law
+      fa: قانون حاکم
+
+  - id: jurisdiction_dispute
+    category: legal
+    labels:
+      en: Jurisdiction and Dispute Resolution
+      fa: صلاحیت و حل اختلاف
+
+  - id: termination
+    category: legal
+    labels:
+      en: Termination
+      fa: فسخ و خاتمه
+
+  - id: insurance
+    category: risk
+    labels:
+      en: Insurance
+      fa: بیمه
+
+  - id: health_safety_environment
+    category: compliance
+    labels:
+      en: Health, Safety and Environment (HSE)
+      fa: بهداشت، ایمنی و محیط زیست
+
+  - id: anti_corruption
+    category: compliance
+    labels:
+      en: Anti-Corruption
+      fa: مبارزه با فساد
+
+  - id: local_content
+    category: compliance
+    labels:
+      en: Local Content Requirements
+      fa: الزامات ساخت داخل
+
+  - id: performance_guarantee
+    category: commercial
+    labels:
+      en: Performance Guarantee
+      fa: تضمین حسن انجام کار
+
+  - id: liquidated_damages
+    category: risk
+    labels:
+      en: Liquidated Damages
+      fa: خسارت وجه التزام
+
+  - id: change_order
+    category: commercial
+    labels:
+      en: Change Order / Variation
+      fa: دستور تغییر / تغییر مقادیر

@@ -1,0 +1,517 @@
+{
+  "version": "1.0.0",
+  "pack_id": "iran-oil-gas",
+  "description": "Golden contract analysis benchmark for Iranian Oil & Gas domain pack",
+  "items": [
+    {
+      "id": "analysis-001",
+      "document_type": "epc_contract",
+      "description": "Test limitation_of_liability detection in epc_contract",
+      "input_summary": "Sample epc_contract with present limitation_of_liability clause",
+      "expected_clauses": [
+        {
+          "type": "limitation_of_liability",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_limitation_of_liability_check",
+          "severity": "high",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-002",
+      "document_type": "epc_contract",
+      "description": "Test force_majeure detection in epc_contract",
+      "input_summary": "Sample epc_contract with present force_majeure clause",
+      "expected_clauses": [
+        {
+          "type": "force_majeure",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_force_majeure_check",
+          "severity": "medium",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-003",
+      "document_type": "epc_contract",
+      "description": "Test health_safety_environment detection in epc_contract",
+      "input_summary": "Sample epc_contract with present health_safety_environment clause",
+      "expected_clauses": [
+        {
+          "type": "health_safety_environment",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_health_safety_environment_check",
+          "severity": "high",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-004",
+      "document_type": "epc_contract",
+      "description": "Test payment_terms detection in epc_contract",
+      "input_summary": "Sample epc_contract with present payment_terms clause",
+      "expected_clauses": [
+        {
+          "type": "payment_terms",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_payment_terms_check",
+          "severity": "medium",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-005",
+      "document_type": "epc_contract",
+      "description": "Test governing_law detection in epc_contract",
+      "input_summary": "Sample epc_contract with present governing_law clause",
+      "expected_clauses": [
+        {
+          "type": "governing_law",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_governing_law_check",
+          "severity": "high",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-006",
+      "document_type": "epc_contract",
+      "description": "Test confidentiality detection in epc_contract",
+      "input_summary": "Sample epc_contract with missing confidentiality clause",
+      "expected_clauses": [
+        {
+          "type": "confidentiality",
+          "present": false
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_confidentiality_check",
+          "severity": "high",
+          "passed": false
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-007",
+      "document_type": "epc_contract",
+      "description": "Test local_content detection in epc_contract",
+      "input_summary": "Sample epc_contract with missing local_content clause",
+      "expected_clauses": [
+        {
+          "type": "local_content",
+          "present": false
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_local_content_check",
+          "severity": "medium",
+          "passed": false
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-008",
+      "document_type": "epc_contract",
+      "description": "Test anti_corruption detection in epc_contract",
+      "input_summary": "Sample epc_contract with missing anti_corruption clause",
+      "expected_clauses": [
+        {
+          "type": "anti_corruption",
+          "present": false
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_anti_corruption_check",
+          "severity": "high",
+          "passed": false
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-009",
+      "document_type": "epc_contract",
+      "description": "Test insurance detection in epc_contract",
+      "input_summary": "Sample epc_contract with present insurance clause",
+      "expected_clauses": [
+        {
+          "type": "insurance",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_insurance_check",
+          "severity": "medium",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-010",
+      "document_type": "epc_contract",
+      "description": "Test warranties detection in epc_contract",
+      "input_summary": "Sample epc_contract with present warranties clause",
+      "expected_clauses": [
+        {
+          "type": "warranties",
+          "present": true
+        }
+      ],
+      "expected_compliance": [
+        {
+          "rule_id": "epc_contract_warranties_check",
+          "severity": "medium",
+          "passed": true
+        }
+      ],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-011",
+      "document_type": "procurement_contract",
+      "description": "Test limitation_of_liability detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present limitation_of_liability clause",
+      "expected_clauses": [
+        {
+          "type": "limitation_of_liability",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-012",
+      "document_type": "procurement_contract",
+      "description": "Test force_majeure detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present force_majeure clause",
+      "expected_clauses": [
+        {
+          "type": "force_majeure",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-013",
+      "document_type": "procurement_contract",
+      "description": "Test health_safety_environment detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present health_safety_environment clause",
+      "expected_clauses": [
+        {
+          "type": "health_safety_environment",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-014",
+      "document_type": "procurement_contract",
+      "description": "Test payment_terms detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present payment_terms clause",
+      "expected_clauses": [
+        {
+          "type": "payment_terms",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-015",
+      "document_type": "procurement_contract",
+      "description": "Test governing_law detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present governing_law clause",
+      "expected_clauses": [
+        {
+          "type": "governing_law",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-016",
+      "document_type": "procurement_contract",
+      "description": "Test confidentiality detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with missing confidentiality clause",
+      "expected_clauses": [
+        {
+          "type": "confidentiality",
+          "present": false
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-017",
+      "document_type": "procurement_contract",
+      "description": "Test local_content detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with missing local_content clause",
+      "expected_clauses": [
+        {
+          "type": "local_content",
+          "present": false
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-018",
+      "document_type": "procurement_contract",
+      "description": "Test anti_corruption detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with missing anti_corruption clause",
+      "expected_clauses": [
+        {
+          "type": "anti_corruption",
+          "present": false
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-019",
+      "document_type": "procurement_contract",
+      "description": "Test insurance detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present insurance clause",
+      "expected_clauses": [
+        {
+          "type": "insurance",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-020",
+      "document_type": "procurement_contract",
+      "description": "Test warranties detection in procurement_contract",
+      "input_summary": "Sample procurement_contract with present warranties clause",
+      "expected_clauses": [
+        {
+          "type": "warranties",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 1,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-021",
+      "document_type": "service_agreement",
+      "description": "Test limitation_of_liability detection in service_agreement",
+      "input_summary": "Sample service_agreement with present limitation_of_liability clause",
+      "expected_clauses": [
+        {
+          "type": "limitation_of_liability",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-022",
+      "document_type": "service_agreement",
+      "description": "Test force_majeure detection in service_agreement",
+      "input_summary": "Sample service_agreement with present force_majeure clause",
+      "expected_clauses": [
+        {
+          "type": "force_majeure",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-023",
+      "document_type": "service_agreement",
+      "description": "Test health_safety_environment detection in service_agreement",
+      "input_summary": "Sample service_agreement with present health_safety_environment clause",
+      "expected_clauses": [
+        {
+          "type": "health_safety_environment",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-024",
+      "document_type": "service_agreement",
+      "description": "Test payment_terms detection in service_agreement",
+      "input_summary": "Sample service_agreement with present payment_terms clause",
+      "expected_clauses": [
+        {
+          "type": "payment_terms",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    },
+    {
+      "id": "analysis-025",
+      "document_type": "service_agreement",
+      "description": "Test governing_law detection in service_agreement",
+      "input_summary": "Sample service_agreement with present governing_law clause",
+      "expected_clauses": [
+        {
+          "type": "governing_law",
+          "present": true
+        }
+      ],
+      "expected_compliance": [],
+      "expected_obligations_min": 2,
+      "expected_risk_score_range": [
+        40,
+        95
+      ]
+    }
+  ]
+}

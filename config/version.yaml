@@ -1,0 +1,19 @@
+# ParsLex platform version (semver)
+# Bump with: python scripts/bump_version.py [patch|minor|major]
+
+version: "1.1.0"
+released: "2026-06-28"
+
+changelog:
+  - version: "1.1.0"
+    date: "2026-06-28"
+    changes:
+      - Ollama integration with parametric model configuration
+      - Centralized VERSION file and version bump script
+  - version: "1.0.0"
+    date: "2026-06-28"
+    changes:
+      - Phase 0 architecture blueprint and ADRs
+      - OpenAPI v0, iran-oil-gas domain pack, golden benchmarks
+      - Phase 1 vertical slice (auth, documents, audit, web UI)
+      - Dev on-prem Docker stack

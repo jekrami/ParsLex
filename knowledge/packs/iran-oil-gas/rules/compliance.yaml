@@ -1,0 +1,93 @@
+# Iranian Oil & Gas — Compliance Rules
+version: 1.0.0
+
+rules:
+  - id: epc_liability_cap_required
+    severity: high
+    clause_types: [limitation_of_liability]
+    condition:
+      document_types: [epc_contract]
+    message:
+      en: EPC contracts should include a limitation of liability clause with defined caps.
+      fa: قراردادهای EPC باید شامل بند محدودیت مسئولیت با سقف مشخص باشند.
+
+  - id: epc_force_majeure_required
+    severity: medium
+    clause_types: [force_majeure]
+    condition:
+      document_types: [epc_contract]
+    message:
+      en: EPC contracts should define force majeure events and relief mechanisms.
+      fa: قراردادهای EPC باید رویدادهای فورس ماژور و مکانیسم‌های تسکین را تعریف کنند.
+
+  - id: epc_hse_required
+    severity: high
+    clause_types: [health_safety_environment]
+    condition:
+      document_types: [epc_contract]
+    message:
+      en: HSE obligations are mandatory for oil & gas EPC contracts.
+      fa: تعهدات HSE برای قراردادهای EPC نفت و گاز الزامی است.
+
+  - id: procurement_payment_terms
+    severity: medium
+    clause_types: [payment_terms]
+    condition:
+      document_types: [procurement_contract, equipment_supply_contract]
+    message:
+      en: Payment terms must specify currency, milestones, and retention.
+      fa: شرایط پرداخت باید ارز، نقاط عطف و مبلغ باقیمانده را مشخص کند.
+
+  - id: nda_confidentiality_scope
+    severity: high
+    clause_types: [confidentiality]
+    condition:
+      document_types: [confidentiality_agreement]
+    message:
+      en: NDA must define confidential information scope and permitted disclosures.
+      fa: قرارداد محرمانگی باید دامنه اطلاعات محرمانه و افشاهای مجاز را تعریف کند.
+
+  - id: tender_local_content
+    severity: medium
+    clause_types: [local_content]
+    condition:
+      document_types: [tender_document]
+    message:
+      en: Tender documents should specify local content requirements per petroleum regulations.
+      fa: اسناد مناقصه باید الزامات ساخت داخل را مطابق مقررات نفتی مشخص کنند.
+
+  - id: service_ip_ownership
+    severity: medium
+    clause_types: [intellectual_property]
+    condition:
+      document_types: [service_agreement]
+    message:
+      en: Service agreements should clarify IP ownership of deliverables.
+      fa: قراردادهای خدمات باید مالکیت مالکیت فکری تحویل‌ها را روشن کنند.
+
+  - id: jv_dispute_resolution
+    severity: high
+    clause_types: [jurisdiction_dispute]
+    condition:
+      document_types: [joint_venture_agreement]
+    message:
+      en: JV agreements must specify governing law and dispute resolution forum.
+      fa: قراردادهای مشارکت باید قانون حاکم و مرجع حل اختلاف را مشخص کنند.
+
+  - id: anti_corruption_all_contracts
+    severity: high
+    clause_types: [anti_corruption]
+    condition:
+      document_types: [epc_contract, procurement_contract, service_agreement, joint_venture_agreement]
+    message:
+      en: Anti-corruption and compliance clauses are recommended for all major contracts.
+      fa: بندهای مبارزه با فساد و انطباق برای تمام قراردادهای اصلی توصیه می‌شود.
+
+  - id: insurance_high_value
+    severity: medium
+    clause_types: [insurance]
+    condition:
+      document_types: [epc_contract, equipment_supply_contract]
+    message:
+      en: High-value contracts should specify minimum insurance coverage requirements.
+      fa: قراردادهای با ارزش بالا باید حداقل پوشش بیمه‌ای را مشخص کنند.

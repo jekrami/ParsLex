@@ -1,0 +1,29 @@
+# ParsLex — Development Environment Configuration
+app:
+  name: ParsLex
+  version: "1.1.0"
+  debug: true
+
+database:
+  host: postgres
+  port: 5432
+  name: parslex
+  user: parslex
+
+storage:
+  provider: minio
+  bucket: parslex-documents
+
+cache:
+  provider: redis
+
+queue:
+  provider: rabbitmq
+
+ai:
+  provider: ollama
+  models_config: config/ai/models.yaml
+  ollama_base_url: http://ollama:11434
+
+domains:
+  default_pack: iran-oil-gas

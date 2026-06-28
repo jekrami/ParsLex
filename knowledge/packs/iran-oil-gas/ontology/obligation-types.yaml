@@ -1,0 +1,63 @@
+# Iranian Oil & Gas — Obligation Type Ontology
+version: 1.0.0
+
+obligation_types:
+  - id: payment_obligation
+    labels:
+      en: Payment Obligation
+      fa: تعهد پرداخت
+    attributes: [amount, currency, due_date, milestone]
+
+  - id: delivery_obligation
+    labels:
+      en: Delivery Obligation
+      fa: تعهد تحویل
+    attributes: [item, quantity, delivery_date, location]
+
+  - id: reporting_obligation
+    labels:
+      en: Reporting Obligation
+      fa: تعهد گزارش‌دهی
+    attributes: [report_type, frequency, recipient, deadline]
+
+  - id: compliance_obligation
+    labels:
+      en: Compliance Obligation
+      fa: تعهد انطباق
+    attributes: [regulation_ref, standard, audit_requirement]
+
+  - id: insurance_obligation
+    labels:
+      en: Insurance Obligation
+      fa: تعهد بیمه
+    attributes: [coverage_type, minimum_amount, provider, renewal_date]
+
+  - id: confidentiality_obligation
+    labels:
+      en: Confidentiality Obligation
+      fa: تعهد محرمانگی
+    attributes: [scope, duration, permitted_disclosure]
+
+  - id: performance_obligation
+    labels:
+      en: Performance Obligation
+      fa: تعهد عملکرد
+    attributes: [kpi, target, measurement_period, penalty]
+
+  - id: hse_obligation
+    labels:
+      en: HSE Obligation
+      fa: تعهد HSE
+    attributes: [standard, inspection_frequency, incident_reporting]
+
+  - id: local_content_obligation
+    labels:
+      en: Local Content Obligation
+      fa: تعهد ساخت داخل
+    attributes: [minimum_percentage, category, verification_method]
+
+  - id: warranty_obligation
+    labels:
+      en: Warranty Obligation
+      fa: تعهد گارانتی
+    attributes: [duration, scope, remedy, exclusion]

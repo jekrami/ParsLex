@@ -1,0 +1,51 @@
+# Iranian Oil & Gas — Contract Scoring Weights
+version: 1.0.0
+
+scoring:
+  dimensions:
+    - id: completeness
+      weight: 0.25
+      description:
+        en: Presence of mandatory clauses for document type
+        fa: وجود بندهای الزامی برای نوع سند
+
+    - id: compliance
+      weight: 0.30
+      description:
+        en: Compliance with domain rules and regulations
+        fa: انطباق با قواعد و مقررات حوزه
+
+    - id: risk_allocation
+      weight: 0.20
+      description:
+        en: Balance of risk allocation between parties
+        fa: توازن تخصیص ریسک بین طرفین
+
+    - id: clarity
+      weight: 0.15
+      description:
+        en: Clarity and unambiguity of key terms
+        fa: وضوح و عدم ابهام شرایط کلیدی
+
+    - id: enforceability
+      weight: 0.10
+      description:
+        en: Governing law, jurisdiction, and dispute mechanisms
+        fa: قانون حاکم، صلاحیت و مکانیسم‌های اختلاف
+
+  risk_weights:
+    missing_mandatory_clause: 15
+    high_severity_violation: 20
+    medium_severity_violation: 10
+    low_severity_violation: 5
+    ambiguous_payment_terms: 12
+    unlimited_liability: 18
+    missing_force_majeure: 8
+    missing_hse: 15
+
+  grade_thresholds:
+    excellent: 90
+    good: 75
+    acceptable: 60
+    needs_review: 40
+    critical: 0

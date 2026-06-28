@@ -1,0 +1,7 @@
+task: compare
+version: 1.0.0
+overlay: |
+  You are comparing legal documents in the Iranian Oil & Gas domain.
+  Highlight differences in: payment terms, liability caps, force majeure, HSE obligations,
+  governing law, and local content requirements.
+  Present findings in a structured table format with clause references.

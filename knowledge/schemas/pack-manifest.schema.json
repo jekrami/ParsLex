@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://parslex.local/schemas/pack-manifest.schema.json",
+  "title": "ParsLex Legal Domain Pack Manifest",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "display_name",
+    "languages",
+    "min_platform_version",
+    "capabilities",
+    "ontology_refs",
+    "corpora"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Immutable pack slug"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "display_name": {
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": { "type": "string" }
+    },
+    "description": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["fa", "en", "ar"] },
+      "minItems": 1
+    },
+    "min_platform_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "knowledge_import",
+          "rag_retrieval",
+          "clause_classification",
+          "compliance_check",
+          "contract_generation",
+          "bilingual_output",
+          "obligation_extraction",
+          "risk_scoring"
+        ]
+      },
+      "minItems": 1
+    },
+    "ontology_refs": {
+      "type": "object",
+      "required": ["document_types", "clause_types", "obligation_types"],
+      "properties": {
+        "document_types": { "type": "string" },
+        "clause_types": { "type": "string" },
+        "obligation_types": { "type": "string" }
+      }
+    },
+    "corpora": {
+      "type": "object",
+      "required": ["regulations", "templates"],
+      "properties": {
+        "regulations": { "type": "string" },
+        "templates": { "type": "string" }
+      }
+    },
+    "prompt_overlays": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "compliance": { "type": "string" },
+        "scoring": { "type": "string" }
+      }
+    },
+    "benchmarks": {
+      "type": "object",
+      "properties": {
+        "qa": { "type": "string" },
+        "analysis": { "type": "string" }
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "properties": {
+        "country": { "type": "string" },
+        "region": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

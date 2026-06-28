@@ -1,0 +1,112 @@
+# Iranian Oil & Gas — Contract Template Inventory
+version: 1.0.0
+
+templates:
+  - id: tpl-epc-standard
+    document_type: epc_contract
+    title:
+      en: Standard EPC Contract
+      fa: قرارداد استاندارد EPC
+    language: bilingual
+    file_ref: templates/files/epc-standard.docx
+    placeholders: [employer, contractor, project_name, contract_value, completion_date]
+    mandatory_clauses:
+      - scope_of_work
+      - payment_terms
+      - limitation_of_liability
+      - force_majeure
+      - governing_law
+      - hse
+
+  - id: tpl-procurement-goods
+    document_type: procurement_contract
+    title:
+      en: Goods Procurement Contract
+      fa: قرارداد تأمین کالا
+    language: bilingual
+    file_ref: templates/files/procurement-goods.docx
+    placeholders: [buyer, seller, goods_description, delivery_terms, payment_terms]
+    mandatory_clauses:
+      - payment_terms
+      - delivery_schedule
+      - warranties
+      - governing_law
+
+  - id: tpl-service-technical
+    document_type: service_agreement
+    title:
+      en: Technical Services Agreement
+      fa: قرارداد خدمات فنی
+    language: bilingual
+    file_ref: templates/files/service-technical.docx
+    placeholders: [client, service_provider, scope, duration, fees]
+    mandatory_clauses:
+      - scope_of_work
+      - payment_terms
+      - confidentiality
+      - termination
+
+  - id: tpl-equipment-supply
+    document_type: equipment_supply_contract
+    title:
+      en: Equipment Supply Contract
+      fa: قرارداد تأمین تجهیزات
+    language: bilingual
+    file_ref: templates/files/equipment-supply.docx
+    placeholders: [buyer, supplier, equipment_list, delivery_port, warranty_period]
+    mandatory_clauses:
+      - delivery_schedule
+      - warranties
+      - limitation_of_liability
+      - insurance
+
+  - id: tpl-nda-bilateral
+    document_type: confidentiality_agreement
+    title:
+      en: Bilateral Non-Disclosure Agreement
+      fa: توافقنامه محرمانگی دوجانبه
+    language: bilingual
+    file_ref: templates/files/nda-bilateral.docx
+    placeholders: [party_a, party_b, purpose, duration]
+    mandatory_clauses:
+      - confidentiality
+      - governing_law
+      - termination
+
+  - id: tpl-jv-framework
+    document_type: joint_venture_agreement
+    title:
+      en: Joint Venture Framework Agreement
+      fa: قرارداد چارچوب مشارکت
+    language: bilingual
+    file_ref: templates/files/jv-framework.docx
+    placeholders: [partners, venture_name, contributions, profit_share]
+    mandatory_clauses:
+      - governing_law
+      - jurisdiction_dispute
+      - termination
+      - confidentiality
+
+  - id: tpl-tender-rfp
+    document_type: tender_document
+    title:
+      en: Request for Proposal (RFP)
+      fa: درخواست پیشنهاد (RFP)
+    language: fa
+    file_ref: templates/files/tender-rfp.docx
+    placeholders: [employer, project_title, submission_deadline, evaluation_criteria]
+    mandatory_clauses:
+      - local_content
+      - anti_corruption
+
+  - id: tpl-tender-rfq
+    document_type: tender_document
+    title:
+      en: Request for Quotation (RFQ)
+      fa: درخواست قیمت (RFQ)
+    language: fa
+    file_ref: templates/files/tender-rfq.docx
+    placeholders: [buyer, items, delivery_location, quote_deadline]
+    mandatory_clauses:
+      - payment_terms
+      - delivery_schedule

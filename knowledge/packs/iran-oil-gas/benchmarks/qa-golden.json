@@ -1,0 +1,805 @@
+{
+  "version": "1.0.0",
+  "pack_id": "iran-oil-gas",
+  "description": "Golden Q&A benchmark for Iranian Oil & Gas domain pack",
+  "items": [
+    {
+      "id": "qa-001",
+      "topic": "epc_liability",
+      "language": "en",
+      "question": "What is the standard limitation of liability cap in Iranian EPC contracts?",
+      "expected_answer_contains": "epc contracts typically cap liability at",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "limitation_of_liability"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-002",
+      "topic": "epc_liability",
+      "language": "fa",
+      "question": "[FA] What is the standard limitation of liability cap in Iranian EPC contracts?",
+      "expected_answer_contains": "epc contracts typically cap liability at",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "limitation_of_liability"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-003",
+      "topic": "force_majeure",
+      "language": "en",
+      "question": "What events qualify as force majeure in oil & gas contracts?",
+      "expected_answer_contains": "force majeure includes war, natural disa",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "force_majeure"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-004",
+      "topic": "force_majeure",
+      "language": "fa",
+      "question": "[FA] What events qualify as force majeure in oil & gas contracts?",
+      "expected_answer_contains": "force majeure includes war, natural disa",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "force_majeure"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-005",
+      "topic": "hse_requirements",
+      "language": "en",
+      "question": "What HSE standards apply to offshore oil operations?",
+      "expected_answer_contains": "hse requirements include compliance with",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-hse-regulations",
+          "clause_type": "health_safety_environment"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-006",
+      "topic": "hse_requirements",
+      "language": "fa",
+      "question": "[FA] What HSE standards apply to offshore oil operations?",
+      "expected_answer_contains": "hse requirements include compliance with",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-hse-regulations",
+          "clause_type": "health_safety_environment"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-007",
+      "topic": "local_content",
+      "language": "en",
+      "question": "What are the local content requirements for petroleum procurement?",
+      "expected_answer_contains": "local content requirements mandate minim",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-local-content",
+          "clause_type": "local_content"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-008",
+      "topic": "local_content",
+      "language": "fa",
+      "question": "[FA] What are the local content requirements for petroleum procurement?",
+      "expected_answer_contains": "local content requirements mandate minim",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-local-content",
+          "clause_type": "local_content"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-009",
+      "topic": "payment_milestone",
+      "language": "en",
+      "question": "How are milestone payments structured in EPC contracts?",
+      "expected_answer_contains": "milestone payments are tied to engineeri",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-010",
+      "topic": "payment_milestone",
+      "language": "fa",
+      "question": "[FA] How are milestone payments structured in EPC contracts?",
+      "expected_answer_contains": "milestone payments are tied to engineeri",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-011",
+      "topic": "procurement_tender",
+      "language": "en",
+      "question": "What is the minimum bid bond for petroleum tenders?",
+      "expected_answer_contains": "bid bonds are typically required at 1-2%",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-tender-regulations",
+          "clause_type": "performance_guarantee"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-012",
+      "topic": "procurement_tender",
+      "language": "fa",
+      "question": "[FA] What is the minimum bid bond for petroleum tenders?",
+      "expected_answer_contains": "bid bonds are typically required at 1-2%",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-tender-regulations",
+          "clause_type": "performance_guarantee"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-013",
+      "topic": "nda_duration",
+      "language": "en",
+      "question": "What is the standard confidentiality period in oil & gas NDAs?",
+      "expected_answer_contains": "confidentiality obligations typically su",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-nioc-standard-contracts",
+          "clause_type": "confidentiality"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-014",
+      "topic": "nda_duration",
+      "language": "fa",
+      "question": "[FA] What is the standard confidentiality period in oil & gas NDAs?",
+      "expected_answer_contains": "confidentiality obligations typically su",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-nioc-standard-contracts",
+          "clause_type": "confidentiality"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-015",
+      "topic": "jv_governance",
+      "language": "en",
+      "question": "How is governance structured in oil & gas joint ventures?",
+      "expected_answer_contains": "jv governance includes board composition",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-foreign-investment",
+          "clause_type": "governing_law"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-016",
+      "topic": "jv_governance",
+      "language": "fa",
+      "question": "[FA] How is governance structured in oil & gas joint ventures?",
+      "expected_answer_contains": "jv governance includes board composition",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-foreign-investment",
+          "clause_type": "governing_law"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-017",
+      "topic": "insurance_coverage",
+      "language": "en",
+      "question": "What insurance is required for EPC contractors?",
+      "expected_answer_contains": "contractors must maintain car, third-par",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "insurance"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-018",
+      "topic": "insurance_coverage",
+      "language": "fa",
+      "question": "[FA] What insurance is required for EPC contractors?",
+      "expected_answer_contains": "contractors must maintain car, third-par",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "insurance"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-019",
+      "topic": "dispute_resolution",
+      "language": "en",
+      "question": "What dispute resolution mechanisms are used in NIOC contracts?",
+      "expected_answer_contains": "disputes may be resolved through negotia",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-nioc-standard-contracts",
+          "clause_type": "jurisdiction_dispute"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-020",
+      "topic": "dispute_resolution",
+      "language": "fa",
+      "question": "[FA] What dispute resolution mechanisms are used in NIOC contracts?",
+      "expected_answer_contains": "disputes may be resolved through negotia",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-nioc-standard-contracts",
+          "clause_type": "jurisdiction_dispute"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-021",
+      "topic": "retention_money",
+      "language": "en",
+      "question": "What is the typical retention percentage in EPC contracts?",
+      "expected_answer_contains": "retention",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-022",
+      "topic": "liquidated_damages",
+      "language": "en",
+      "question": "How are liquidated damages calculated for delay?",
+      "expected_answer_contains": "liquidated",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "liquidated_damages"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-023",
+      "topic": "change_order",
+      "language": "en",
+      "question": "What is the process for change orders in EPC projects?",
+      "expected_answer_contains": "change order",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "change_order"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-024",
+      "topic": "warranty_period",
+      "language": "en",
+      "question": "What is the standard warranty period for equipment supply?",
+      "expected_answer_contains": "warranty",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "warranties"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-025",
+      "topic": "performance_bank_guarantee",
+      "language": "en",
+      "question": "What percentage is required for performance bank guarantee?",
+      "expected_answer_contains": "performance guarantee",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "performance_guarantee"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-026",
+      "topic": "environmental_permit",
+      "language": "en",
+      "question": "What environmental permits are needed for drilling?",
+      "expected_answer_contains": "environmental",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "compliance_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-027",
+      "topic": "labor_visa",
+      "language": "en",
+      "question": "What are foreign worker visa requirements for oil projects?",
+      "expected_answer_contains": "labor",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "compliance_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-028",
+      "topic": "tax_withholding",
+      "language": "en",
+      "question": "What withholding tax applies to foreign contractors?",
+      "expected_answer_contains": "withholding",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-029",
+      "topic": "intellectual_property",
+      "language": "en",
+      "question": "Who owns IP for engineering designs in service contracts?",
+      "expected_answer_contains": "intellectual property",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "intellectual_property"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-030",
+      "topic": "termination_convenience",
+      "language": "en",
+      "question": "Can the employer terminate EPC contract for convenience?",
+      "expected_answer_contains": "termination",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "termination"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-031",
+      "topic": "suspension_rights",
+      "language": "en",
+      "question": "What are employer suspension rights during EPC execution?",
+      "expected_answer_contains": "suspension",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "termination"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-032",
+      "topic": "defects_liability",
+      "language": "en",
+      "question": "What is the defects liability period for construction works?",
+      "expected_answer_contains": "defects liability",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "warranties"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-033",
+      "topic": "price_escalation",
+      "language": "en",
+      "question": "Are price escalation clauses allowed in long-term supply contracts?",
+      "expected_answer_contains": "escalation",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-034",
+      "topic": "currency_risk",
+      "language": "en",
+      "question": "How is currency risk allocated in petroleum contracts?",
+      "expected_answer_contains": "currency",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-035",
+      "topic": "subcontracting",
+      "language": "en",
+      "question": "What are subcontracting approval requirements?",
+      "expected_answer_contains": "subcontract",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "scope_of_work"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-036",
+      "topic": "assignment_restrictions",
+      "language": "en",
+      "question": "Can contractors assign rights without employer consent?",
+      "expected_answer_contains": "assignment",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "termination"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-037",
+      "topic": "parent_company_guarantee",
+      "language": "en",
+      "question": "When is a parent company guarantee required?",
+      "expected_answer_contains": "parent company",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "performance_guarantee"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-038",
+      "topic": "safety_incident_reporting",
+      "language": "en",
+      "question": "What is the timeline for reporting HSE incidents?",
+      "expected_answer_contains": "incident reporting",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "hse_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-039",
+      "topic": "bank_guarantee_validity",
+      "language": "en",
+      "question": "How long must bid bonds remain valid after bid opening?",
+      "expected_answer_contains": "bid bond",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "performance_guarantee"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-040",
+      "topic": "advance_payment_guarantee",
+      "language": "en",
+      "question": "Is an advance payment guarantee required for EPC contracts?",
+      "expected_answer_contains": "advance payment",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-041",
+      "topic": "materials_testing",
+      "language": "en",
+      "question": "What materials testing standards apply to pipeline construction?",
+      "expected_answer_contains": "testing",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "scope_of_work"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-042",
+      "topic": "commissioning_handover",
+      "language": "en",
+      "question": "What are commissioning and handover requirements?",
+      "expected_answer_contains": "commissioning",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "delivery_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-043",
+      "topic": "spare_parts",
+      "language": "en",
+      "question": "Are spare parts obligations included in equipment supply contracts?",
+      "expected_answer_contains": "spare parts",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "warranties"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-044",
+      "topic": "training_obligation",
+      "language": "en",
+      "question": "Must suppliers provide operator training?",
+      "expected_answer_contains": "training",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "performance_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-045",
+      "topic": "export_control",
+      "language": "en",
+      "question": "How do sanctions affect petroleum equipment imports?",
+      "expected_answer_contains": "sanctions",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "compliance_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-046",
+      "topic": "data_protection",
+      "language": "en",
+      "question": "What data protection rules apply to seismic survey data?",
+      "expected_answer_contains": "data protection",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "confidentiality"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-047",
+      "topic": "audit_rights",
+      "language": "en",
+      "question": "Do employers have audit rights over contractor accounts?",
+      "expected_answer_contains": "audit",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "reporting_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-048",
+      "topic": "set_off_rights",
+      "language": "en",
+      "question": "Can employers set off claims against milestone payments?",
+      "expected_answer_contains": "set off",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "payment_terms"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-049",
+      "topic": "consequential_damages",
+      "language": "en",
+      "question": "Are consequential damages typically excluded?",
+      "expected_answer_contains": "consequential",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "limitation_of_liability"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-050",
+      "topic": "indemnity_scope",
+      "language": "en",
+      "question": "What is the scope of indemnification for third-party claims?",
+      "expected_answer_contains": "indemnif",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "indemnification"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-051",
+      "topic": "permits_responsibility",
+      "language": "en",
+      "question": "Who obtains operating permits for oil facilities?",
+      "expected_answer_contains": "permits",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "compliance_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-052",
+      "topic": "decommissioning",
+      "language": "en",
+      "question": "What decommissioning obligations apply at contract end?",
+      "expected_answer_contains": "decommission",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "scope_of_work"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-053",
+      "topic": "title_transfer",
+      "language": "en",
+      "question": "When does title to equipment transfer to buyer?",
+      "expected_answer_contains": "title",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "delivery_obligation"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-054",
+      "topic": "packaging_shipping",
+      "language": "en",
+      "question": "What Incoterms are standard for equipment supply?",
+      "expected_answer_contains": "incoterm",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "delivery_schedule"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-055",
+      "topic": "quality_inspection",
+      "language": "en",
+      "question": "What third-party inspection is required before shipment?",
+      "expected_answer_contains": "inspection",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "warranties"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-056",
+      "topic": "penalty_cap",
+      "language": "en",
+      "question": "Is there a cap on liquidated damages for delay?",
+      "expected_answer_contains": "cap",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "liquidated_damages"
+        }
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "id": "qa-057",
+      "topic": "notice_provisions",
+      "language": "en",
+      "question": "What notice periods apply for contract termination?",
+      "expected_answer_contains": "notice",
+      "expected_sources": [
+        {
+          "corpus_id": "iogc-epc-guidelines",
+          "clause_type": "termination"
+        }
+      ],
+      "difficulty": "medium"
+    }
+  ]
+}

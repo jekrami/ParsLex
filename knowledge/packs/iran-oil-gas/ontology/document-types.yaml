@@ -1,0 +1,111 @@
+# Iranian Oil & Gas — Document Type Ontology
+version: 1.0.0
+
+document_types:
+  - id: epc_contract
+    category: contract
+    labels:
+      en: EPC Contract
+      fa: قرارداد EPC
+    description:
+      en: Engineering, Procurement and Construction contract
+      fa: قرارداد مهندسی، تأمین و ساخت
+
+  - id: procurement_contract
+    category: contract
+    labels:
+      en: Procurement Contract
+      fa: قرارداد تأمین
+    description:
+      en: Goods and materials procurement agreement
+      fa: قرارداد خرید کالا و مواد
+
+  - id: service_agreement
+    category: contract
+    labels:
+      en: Service Agreement
+      fa: قرارداد خدمات
+    description:
+      en: Technical and operational services contract
+      fa: قرارداد خدمات فنی و عملیاتی
+
+  - id: equipment_supply_contract
+    category: contract
+    labels:
+      en: Equipment Supply Contract
+      fa: قرارداد تأمین تجهیزات
+    description:
+      en: Supply of oil & gas equipment and machinery
+      fa: تأمین تجهیزات و ماشین‌آلات نفت و گاز
+
+  - id: confidentiality_agreement
+    category: contract
+    labels:
+      en: Confidentiality Agreement (NDA)
+      fa: قرارداد محرمانگی
+    description:
+      en: Non-disclosure and confidentiality agreement
+      fa: توافقنامه عدم افشا و محرمانگی
+
+  - id: joint_venture_agreement
+    category: contract
+    labels:
+      en: Joint Venture Agreement
+      fa: قرارداد مشارکت
+    description:
+      en: Joint venture and partnership agreement
+      fa: قرارداد مشارکت و سرمایه‌گذاری مشترک
+
+  - id: tender_document
+    category: tender
+    labels:
+      en: Tender Document
+      fa: اسناد مناقصه
+    description:
+      en: Invitation to tender, RFP, RFQ documents
+      fa: آگهی مناقصه، اسناد درخواست پیشنهاد
+
+  - id: petroleum_regulation
+    category: regulation
+    labels:
+      en: Petroleum Regulation
+      fa: مقررات نفتی
+    description:
+      en: Ministry of Petroleum and NIOC regulations
+      fa: مقررات وزارت نفت و شرکت ملی نفت
+
+  - id: environmental_regulation
+    category: regulation
+    labels:
+      en: Environmental Regulation
+      fa: مقررات زیست‌محیطی
+    description:
+      en: Environmental compliance for oil & gas operations
+      fa: الزامات زیست‌محیطی عملیات نفت و گاز
+
+  - id: labor_regulation
+    category: regulation
+    labels:
+      en: Labor Regulation
+      fa: مقررات کار
+    description:
+      en: Labor law applicable to oil & gas projects
+      fa: قوانین کار مرتبط با پروژه‌های نفت و گاز
+
+  - id: technical_standard
+    category: standard
+    labels:
+      en: Technical Standard
+      fa: استاندارد فنی
+    description:
+      en: API, ISO, and national technical standards
+      fa: استانداردهای API، ISO و ملی
+
+  - id: corporate_policy
+    category: policy
+    labels:
+      en: Corporate Policy
+      fa: سیاست سازمانی
+    description:
+      en: Internal corporate legal and compliance policies
+      fa: سیاست‌های حقوقی و انطباق داخلی سازمان

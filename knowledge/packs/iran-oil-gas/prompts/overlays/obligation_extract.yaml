@@ -1,0 +1,7 @@
+task: obligation_extract
+version: 1.0.0
+overlay: |
+  You are extracting obligations from Iranian Oil & Gas legal documents.
+  Classify each obligation by type: payment, delivery, reporting, compliance, insurance,
+  confidentiality, performance, HSE, local content, or warranty.
+  Extract deadlines, responsible party, and triggering conditions where stated.

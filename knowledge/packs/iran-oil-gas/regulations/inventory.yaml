@@ -1,0 +1,95 @@
+# Iranian Oil & Gas — Regulation Corpus Inventory
+# Actual regulation files are imported via knowledge pipeline; this catalog defines metadata.
+version: 1.0.0
+
+corpora:
+  - id: iogc-petroleum-law
+    title:
+      en: Petroleum Industry Legal Framework
+      fa: چارچوب حقوقی صنعت نفت
+    document_type: petroleum_regulation
+    language: fa
+    authority:
+      en: Islamic Republic of Iran — Ministry of Petroleum
+      fa: جمهوری اسلامی ایران — وزارت نفت
+  - id: iogc-nioc-standard-contracts
+    title:
+      en: NIOC Standard Contract Forms
+      fa: فرم‌های استاندارد قرارداد شرکت ملی نفت
+    document_type: petroleum_regulation
+    language: bilingual
+    authority:
+      en: National Iranian Oil Company
+      fa: شرکت ملی نفت ایران
+  - id: iogc-procurement-directive
+    title:
+      en: Oil & Gas Procurement Directive
+      fa: دستورالعمل تأمین کالا و خدمات نفت و گاز
+    document_type: petroleum_regulation
+    language: fa
+    authority:
+      en: Ministry of Petroleum
+      fa: وزارت نفت
+  - id: iogc-tender-regulations
+    title:
+      en: Tender and Auction Regulations
+      fa: آیین‌نامه مناقصات و مزایده‌ها
+    document_type: petroleum_regulation
+    language: fa
+    authority:
+      en: Board of Ministers / Ministry of Petroleum
+      fa: هیئت وزیران / وزارت نفت
+  - id: iogc-epc-guidelines
+    title:
+      en: EPC Contract Guidelines
+      fa: دستورالعمل قراردادهای EPC
+    document_type: petroleum_regulation
+    language: bilingual
+    authority:
+      en: NIOC / Ministry of Petroleum
+      fa: شرکت ملی نفت / وزارت نفت
+  - id: iogc-hse-regulations
+    title:
+      en: HSE Regulations for Oil & Gas Operations
+      fa: مقررات HSE عملیات نفت و گاز
+    document_type: environmental_regulation
+    language: fa
+    authority:
+      en: Department of Environment / Ministry of Petroleum
+      fa: سازمان محیط زیست / وزارت نفت
+  - id: iogc-environmental-compliance
+    title:
+      en: Environmental Impact Assessment Requirements
+      fa: الزامات ارزیابی اثرات زیست‌محیطی
+    document_type: environmental_regulation
+    language: fa
+    authority:
+      en: Department of Environment
+      fa: سازمان محیط زیست
+  - id: iogc-labor-project
+    title:
+      en: Labor Law Provisions for Oil & Gas Projects
+      fa: مقررات کار پروژه‌های نفت و گاز
+    document_type: labor_regulation
+    language: fa
+    authority:
+      en: Ministry of Cooperatives, Labour and Social Welfare
+      fa: وزارت تعاون، کار و رفاه اجتماعی
+  - id: iogc-local-content
+    title:
+      en: Local Content and Domestic Manufacturing Requirements
+      fa: الزامات ساخت داخل و محتوای بومی
+    document_type: petroleum_regulation
+    language: fa
+    authority:
+      en: Ministry of Petroleum / Ministry of Industry
+      fa: وزارت نفت / وزارت صنعت
+  - id: iogc-foreign-investment
+    title:
+      en: Foreign Investment in Petroleum Sector
+      fa: سرمایه‌گذاری خارجی در بخش نفت
+    document_type: petroleum_regulation
+    language: fa
+    authority:
+      en: Organization for Investment Economic and Technical Assistance
+      fa: سازمان سرمایه‌گذاری و کمک‌های اقتصادی و فنی

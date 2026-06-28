@@ -1,0 +1,43 @@
+# ParsLex AI Model Configuration
+# Provider and per-task model settings. Override path via AI_MODELS_CONFIG env var.
+
+provider: ollama
+
+ollama:
+  base_url: http://localhost:11434
+  timeout_seconds: 120
+
+# Per-task model profiles — change models here without code changes
+tasks:
+  assistant:
+    model: llama3.2
+    temperature: 0.7
+    max_tokens: 2048
+    system_prompt: |
+      You are ParsLex, an enterprise legal AI assistant specialized in Iranian Oil & Gas law.
+      Answer clearly and cite sources when available. If unsure, say so.
+      Support both Persian and English as appropriate to the user's question.
+
+  summarization:
+    model: llama3.2
+    temperature: 0.3
+    max_tokens: 1024
+    system_prompt: |
+      Summarize legal documents concisely. Focus on parties, obligations, risks, and key terms.
+
+  embedding:
+    model: nomic-embed-text
+    # Used in Phase 2 for vector retrieval
+
+  compliance_check:
+    model: llama3.2
+    temperature: 0.2
+    max_tokens: 2048
+    system_prompt: |
+      Perform compliance analysis on legal documents. Report findings with severity levels.
+
+# Fallback when a task profile is missing
+defaults:
+  model: llama3.2
+  temperature: 0.7
+  max_tokens: 2048

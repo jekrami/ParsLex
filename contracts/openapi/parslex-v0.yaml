@@ -1,0 +1,965 @@
+openapi: 3.1.0
+info:
+  title: ParsLex Platform API
+  version: 1.1.0
+  description: |
+    Enterprise Domain-Adaptive Legal AI Platform — REST API v0.
+
+    Phase 1 covers identity, documents, collections, assistant sessions, and audit.
+    All endpoints require authentication unless noted.
+  contact:
+    name: ParsLex Architecture Team
+
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local development
+  - url: https://parslex.local/api/v1
+    description: On-premise deployment
+
+tags:
+  - name: Identity
+    description: Authentication and user profile
+  - name: Organizations
+    description: Organization and workspace management
+  - name: Documents
+    description: Document upload, versioning, and metadata
+  - name: Collections
+    description: Knowledge collections for scoped retrieval
+  - name: Assistant
+    description: AI legal assistant sessions and messages
+  - name: Audit
+    description: Audit event log
+
+paths:
+  /auth/login:
+    post:
+      tags: [Identity]
+      summary: Authenticate user
+      operationId: login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /auth/me:
+    get:
+      tags: [Identity]
+      summary: Get current user profile
+      operationId: getCurrentUser
+      responses:
+        '200':
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /organizations:
+    get:
+      tags: [Organizations]
+      summary: List organizations for current user
+      operationId: listOrganizations
+      responses:
+        '200':
+          description: Organization list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Organization'
+                  total:
+                    type: integer
+
+  /organizations/{orgId}/workspaces:
+    get:
+      tags: [Organizations]
+      summary: List workspaces in organization
+      operationId: listWorkspaces
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+      responses:
+        '200':
+          description: Workspace list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Workspace'
+
+  /organizations/{orgId}/documents:
+    get:
+      tags: [Documents]
+      summary: List documents in organization
+      operationId: listDocuments
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - name: workspace_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: document_type
+          in: query
+          schema:
+            $ref: '#/components/schemas/DocumentType'
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 20
+            maximum: 100
+      responses:
+        '200':
+          description: Paginated document list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+    post:
+      tags: [Documents]
+      summary: Upload a new document
+      operationId: uploadDocument
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file, title]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                title:
+                  type: string
+                document_type:
+                  $ref: '#/components/schemas/DocumentType'
+                language:
+                  type: string
+                  enum: [fa, en, bilingual]
+                workspace_id:
+                  type: string
+                  format: uuid
+                metadata:
+                  type: string
+                  description: JSON-encoded metadata object
+      responses:
+        '201':
+          description: Document created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /organizations/{orgId}/documents/{documentId}:
+    get:
+      tags: [Documents]
+      summary: Get document by ID
+      operationId: getDocument
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/DocumentId'
+      responses:
+        '200':
+          description: Document details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      tags: [Documents]
+      summary: Soft-delete document
+      operationId: deleteDocument
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/DocumentId'
+      responses:
+        '204':
+          description: Document deleted
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /organizations/{orgId}/documents/{documentId}/versions:
+    get:
+      tags: [Documents]
+      summary: List document versions
+      operationId: listDocumentVersions
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/DocumentId'
+      responses:
+        '200':
+          description: Version list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DocumentVersion'
+
+  /organizations/{orgId}/documents/{documentId}/download:
+    get:
+      tags: [Documents]
+      summary: Download latest document version
+      operationId: downloadDocument
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/DocumentId'
+      responses:
+        '200':
+          description: File content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /organizations/{orgId}/collections:
+    get:
+      tags: [Collections]
+      summary: List knowledge collections
+      operationId: listCollections
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - name: workspace_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Collection list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/KnowledgeCollection'
+    post:
+      tags: [Collections]
+      summary: Create knowledge collection
+      operationId: createCollection
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCollectionRequest'
+      responses:
+        '201':
+          description: Collection created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeCollection'
+
+  /organizations/{orgId}/collections/{collectionId}:
+    get:
+      tags: [Collections]
+      summary: Get collection by ID
+      operationId: getCollection
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/CollectionId'
+      responses:
+        '200':
+          description: Collection details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeCollection'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      tags: [Collections]
+      summary: Update collection
+      operationId: updateCollection
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/CollectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCollectionRequest'
+      responses:
+        '200':
+          description: Collection updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KnowledgeCollection'
+
+  /organizations/{orgId}/collections/{collectionId}/documents:
+    post:
+      tags: [Collections]
+      summary: Add document to collection
+      operationId: addDocumentToCollection
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/CollectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [document_id]
+              properties:
+                document_id:
+                  type: string
+                  format: uuid
+      responses:
+        '204':
+          description: Document added
+    delete:
+      tags: [Collections]
+      summary: Remove document from collection
+      operationId: removeDocumentFromCollection
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/CollectionId'
+        - name: document_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Document removed
+
+  /organizations/{orgId}/assistant/sessions:
+    get:
+      tags: [Assistant]
+      summary: List AI assistant sessions
+      operationId: listAssistantSessions
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - name: workspace_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Session list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AISession'
+    post:
+      tags: [Assistant]
+      summary: Create AI assistant session
+      operationId: createAssistantSession
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAISessionRequest'
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AISession'
+
+  /organizations/{orgId}/assistant/sessions/{sessionId}:
+    get:
+      tags: [Assistant]
+      summary: Get assistant session with messages
+      operationId: getAssistantSession
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/SessionId'
+      responses:
+        '200':
+          description: Session with messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AISessionDetail'
+
+  /organizations/{orgId}/assistant/sessions/{sessionId}/messages:
+    post:
+      tags: [Assistant]
+      summary: Send message to assistant
+      operationId: sendAssistantMessage
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - $ref: '#/components/parameters/SessionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendMessageRequest'
+      responses:
+        '200':
+          description: Assistant response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIMessage'
+
+  /organizations/{orgId}/audit/events:
+    get:
+      tags: [Audit]
+      summary: List audit events
+      operationId: listAuditEvents
+      parameters:
+        - $ref: '#/components/parameters/OrgId'
+        - name: resource_type
+          in: query
+          schema:
+            type: string
+        - name: user_id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: Audit event list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditEventListResponse'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  security:
+    - bearerAuth: []
+
+  parameters:
+    OrgId:
+      name: orgId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    DocumentId:
+      name: documentId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    CollectionId:
+      name: collectionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    SessionId:
+      name: sessionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    BadRequest:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+
+    LoginResponse:
+      type: object
+      required: [access_token, token_type, expires_in, user]
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          enum: [bearer]
+        expires_in:
+          type: integer
+        user:
+          $ref: '#/components/schemas/User'
+
+    User:
+      type: object
+      required: [id, email, full_name, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        full_name:
+          type: string
+        role:
+          type: string
+          enum: [admin, legal_user, business_user, viewer]
+        created_at:
+          type: string
+          format: date-time
+
+    Organization:
+      type: object
+      required: [id, name, slug]
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        slug:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    Workspace:
+      type: object
+      required: [id, organization_id, name]
+      properties:
+        id:
+          type: string
+          format: uuid
+        organization_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        legal_domain_id:
+          type: string
+          description: Active domain pack reference
+
+    DocumentType:
+      type: string
+      enum:
+        - contract
+        - regulation
+        - law
+        - template
+        - policy
+        - court_decision
+        - book
+        - tender
+        - other
+
+    DocumentStatus:
+      type: string
+      enum:
+        - pending
+        - processing
+        - ready
+        - failed
+
+    Document:
+      type: object
+      required: [id, organization_id, title, document_type, status, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        organization_id:
+          type: string
+          format: uuid
+        workspace_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        document_type:
+          $ref: '#/components/schemas/DocumentType'
+        language:
+          type: string
+          enum: [fa, en, bilingual]
+        status:
+          $ref: '#/components/schemas/DocumentStatus'
+        current_version:
+          $ref: '#/components/schemas/DocumentVersion'
+        metadata:
+          type: object
+          additionalProperties: true
+        created_by:
+          type: string
+          format: uuid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    DocumentVersion:
+      type: object
+      required: [id, document_id, version_number, file_name, file_size, content_hash]
+      properties:
+        id:
+          type: string
+          format: uuid
+        document_id:
+          type: string
+          format: uuid
+        version_number:
+          type: integer
+        file_name:
+          type: string
+        file_size:
+          type: integer
+        content_type:
+          type: string
+        content_hash:
+          type: string
+        storage_key:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    DocumentListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+
+    KnowledgeCollection:
+      type: object
+      required: [id, organization_id, name, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        organization_id:
+          type: string
+          format: uuid
+        workspace_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        legal_domain_id:
+          type: string
+        document_count:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    CreateCollectionRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        workspace_id:
+          type: string
+          format: uuid
+        legal_domain_id:
+          type: string
+
+    UpdateCollectionRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+
+    AISession:
+      type: object
+      required: [id, organization_id, title, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        organization_id:
+          type: string
+          format: uuid
+        workspace_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        legal_domain_id:
+          type: string
+        scope:
+          $ref: '#/components/schemas/AISessionScope'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    AISessionScope:
+      type: object
+      properties:
+        document_ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+        collection_ids:
+          type: array
+          items:
+            type: string
+            format: uuid
+
+    AISessionDetail:
+      allOf:
+        - $ref: '#/components/schemas/AISession'
+        - type: object
+          properties:
+            messages:
+              type: array
+              items:
+                $ref: '#/components/schemas/AIMessage'
+
+    CreateAISessionRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        workspace_id:
+          type: string
+          format: uuid
+        legal_domain_id:
+          type: string
+          default: iran-oil-gas
+        scope:
+          $ref: '#/components/schemas/AISessionScope'
+
+    SendMessageRequest:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: string
+        stream:
+          type: boolean
+          default: false
+
+    AIMessage:
+      type: object
+      required: [id, session_id, role, content, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        session_id:
+          type: string
+          format: uuid
+        role:
+          type: string
+          enum: [user, assistant, system]
+        content:
+          type: string
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Citation'
+        model_version:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    Citation:
+      type: object
+      required: [document_id, chunk_id, excerpt]
+      properties:
+        document_id:
+          type: string
+          format: uuid
+        document_title:
+          type: string
+        chunk_id:
+          type: string
+          format: uuid
+        excerpt:
+          type: string
+        page_number:
+          type: integer
+
+    AuditEvent:
+      type: object
+      required: [id, organization_id, action, resource_type, created_at]
+      properties:
+        id:
+          type: string
+          format: uuid
+        organization_id:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        user_email:
+          type: string
+        action:
+          type: string
+          enum:
+            - login
+            - logout
+            - document.upload
+            - document.download
+            - document.delete
+            - collection.create
+            - collection.update
+            - assistant.message
+        resource_type:
+          type: string
+        resource_id:
+          type: string
+          format: uuid
+        metadata:
+          type: object
+          additionalProperties: true
+        ip_address:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    AuditEventListResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditEvent'
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer

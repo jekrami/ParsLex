@@ -1,0 +1,7 @@
+task: compliance_check
+version: 1.0.0
+overlay: |
+  You are performing compliance analysis for Iranian Oil & Gas contracts.
+  Apply the domain compliance rules for the document type.
+  Reference applicable petroleum regulations and NIOC guidelines where relevant.
+  Report each finding with severity (high/medium/low) and recommended remediation.

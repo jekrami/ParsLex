@@ -1,0 +1,52 @@
+id: iran-oil-gas
+version: 1.0.0
+display_name:
+  en: Iranian Oil & Gas
+  fa: نفت و گاز ایران
+description:
+  en: >-
+    Legal knowledge pack for Iranian petroleum sector including regulations,
+    EPC/procurement/service contracts, tender documents, and compliance rules.
+  fa: >-
+    بسته دانش حقوقی برای بخش نفت و گاز ایران شامل مقررات، قراردادهای EPC/
+    تأمین/خدمات، اسناد مناقصه و قواعد انطباق.
+languages:
+  - fa
+  - en
+min_platform_version: 1.0.0
+jurisdiction:
+  country: IR
+  region: oil_gas
+
+capabilities:
+  - knowledge_import
+  - rag_retrieval
+  - clause_classification
+  - compliance_check
+  - contract_generation
+  - bilingual_output
+  - obligation_extraction
+  - risk_scoring
+
+ontology_refs:
+  document_types: ontology/document-types.yaml
+  clause_types: ontology/clause-types.yaml
+  obligation_types: ontology/obligation-types.yaml
+
+corpora:
+  regulations: regulations/inventory.yaml
+  templates: templates/inventory.yaml
+
+prompt_overlays:
+  summarize: prompts/overlays/summarize.yaml
+  compare: prompts/overlays/compare.yaml
+  compliance_check: prompts/overlays/compliance_check.yaml
+  obligation_extract: prompts/overlays/obligation_extract.yaml
+
+rules:
+  compliance: rules/compliance.yaml
+  scoring: rules/scoring.yaml
+
+benchmarks:
+  qa: benchmarks/qa-golden.json
+  analysis: benchmarks/analysis-golden.json
