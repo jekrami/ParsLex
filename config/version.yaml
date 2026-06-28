@@ -1,10 +1,14 @@
 # ParsLex platform version (semver)
 # Bump with: python scripts/bump_version.py [patch|minor|major]
 
-version: "1.1.0"
+version: "1.1.1"
 released: "2026-06-28"
 
 changelog:
+  - version: "1.1.1"
+    date: "2026-06-28"
+    changes:
+      - Local storage backend, full installation guide, and dev port 8010 defaults
   - version: "1.1.0"
     date: "2026-06-28"
     changes:

@@ -106,7 +106,7 @@ services:
       AI_MODELS_CONFIG: config/ai/models.yaml
       CORS_ORIGINS: '["http://localhost:5173","http://localhost:3000"]'
     ports:
-      - "8000:8000"
+      - "8010:8000"
     depends_on:
       postgres:
         condition: service_healthy

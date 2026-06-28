@@ -1,6 +1,6 @@
 # ParsLex — Enterprise Domain-Adaptive Legal AI Platform
 
-**Version:** see [`VERSION`](VERSION) (currently **1.1.0**)
+**Version:** see [`VERSION`](VERSION) (currently **1.1.1**)
 
 On-premise, domain-packable legal AI platform. Iranian Oil & Gas is the first knowledge domain pack.
 
@@ -23,6 +23,8 @@ python scripts/bump_version.py patch -m "Describe your change"
 ```
 
 ## Quick Start
+
+> **Full installation:** For PostgreSQL, MinIO, Redis, RabbitMQ, Qdrant, Ollama, environment variables, verification, and troubleshooting, see the [**Technical Installation Guide**](docs/installation-guide.md).
 
 ### 1. Start infrastructure
 
@@ -54,11 +56,15 @@ From the **repository root**:
 pip install -r backend/requirements.txt
 cp .env.example .env   # if not already done
 set PYTHONPATH=.       # Windows: $env:PYTHONPATH="."
-uvicorn backend.apps.api.main:app --reload
+uvicorn backend.apps.api.main:app --reload --port 8010
 ```
 
-API: http://localhost:8000  
-Docs: http://localhost:8000/docs
+> Note: port `8010` is used by default because port `8000` is commonly taken by
+> other services (e.g. Splunk). Change it freely; if you do, update
+> `VITE_API_PROXY_TARGET` for the web UI accordingly.
+
+API: http://localhost:8010  
+Docs: http://localhost:8010/docs
 
 ### 4. Start Web UI
 

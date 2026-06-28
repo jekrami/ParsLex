@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: ParsLex Platform API
-  version: 1.1.0
+  version: 1.1.1
   description: |
     Enterprise Domain-Adaptive Legal AI Platform — REST API v0.
 
@@ -11,7 +11,7 @@ info:
     name: ParsLex Architecture Team
 
 servers:
-  - url: http://localhost:8000/api/v1
+  - url: http://localhost:8010/api/v1
     description: Local development
   - url: https://parslex.local/api/v1
     description: On-premise deployment

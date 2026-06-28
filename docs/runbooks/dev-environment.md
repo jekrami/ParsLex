@@ -1,5 +1,7 @@
 # ParsLex Development Runbook
 
+Short operational reference. For full step-by-step installation of all infrastructure components, see [**Technical Installation Guide**](../installation-guide.md).
+
 ## Prerequisites
 
 - Docker Desktop (or Docker Engine + Compose)
@@ -12,7 +14,7 @@
 .\scripts\dev-up.ps1
 ```
 
-This starts: PostgreSQL, MinIO, Redis, RabbitMQ, Qdrant, mock LLM inference.
+This starts: PostgreSQL, MinIO, Redis, RabbitMQ, Qdrant, Ollama.
 
 ## Service endpoints
 
@@ -25,7 +27,8 @@ This starts: PostgreSQL, MinIO, Redis, RabbitMQ, Qdrant, mock LLM inference.
 | RabbitMQ AMQP | localhost:5672 | parslex / parslex |
 | RabbitMQ UI | http://localhost:15672 | parslex / parslex |
 | Qdrant | http://localhost:6333 | — |
-| LLM (mock) | http://localhost:8080/health | — |
+| Ollama | http://localhost:11434 | — |
+| ParsLex API (host) | http://localhost:8010 | JWT after login |
 
 ## GPU inference (production)
 

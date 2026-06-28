@@ -21,6 +21,10 @@ package-lock.json
 # Docker volumes
 data/
 
+# Local document storage (dev)
+storage/
+parslex_dev.db
+
 # OS
 .DS_Store
 Thumbs.db

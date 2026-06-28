@@ -15,7 +15,12 @@ def read_platform_version() -> str:
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    # Load .env from the repository root so the app runs from any working directory
+    model_config = SettingsConfigDict(
+        env_file=str(ROOT_DIR / ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
     app_name: str = "ParsLex API"
     debug: bool = True
@@ -25,6 +30,10 @@ class Settings(BaseSettings):
     secret_key: str = "dev-secret-change-in-production"
     access_token_expire_minutes: int = 480
     algorithm: str = "HS256"
+
+    # Storage: "local" (filesystem, no Docker) or "minio" (object storage)
+    storage_provider: str = "local"
+    storage_local_path: str = "storage/documents"
 
     minio_endpoint: str = "localhost:9000"
     minio_access_key: str = "parslex"
@@ -50,6 +59,13 @@ class Settings(BaseSettings):
     @property
     def ai_models_config_path(self) -> Path:
         path = Path(self.ai_models_config)
+        if path.is_absolute():
+            return path
+        return ROOT_DIR / path
+
+    @property
+    def storage_local_path_resolved(self) -> Path:
+        path = Path(self.storage_local_path)
         if path.is_absolute():
             return path
         return ROOT_DIR / path
